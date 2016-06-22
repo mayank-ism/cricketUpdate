@@ -12,13 +12,14 @@ function renderScore() {
 	var scoreBoxLiveDOM = $('#score-box-live');
 	var scoreBoxLaterDOM = $('#score-box-later');
 	var scoreBoxFavTeamDOM = $('#score-fav-live');
-
+	var animationDOM = $('#score-box-loading');
+	animationDOM.show();
 	$.getJSON(url + match, function(response) {
 		var allMatchDataArray = response.data;
 		scoreBoxLiveDOM.html("");
 		scoreBoxLaterDOM.html("");
 		scoreBoxFavTeamDOM.html("");
-
+		animationDOM.hide();
 		scoreBoxFavTeamDOM.append("<h3 class = \"text-left\">Games:</h3><hr>");
 		allMatchDataArray.forEach(function(game) {
 			var unique_id = game['unique_id'];
@@ -33,7 +34,6 @@ function renderScore() {
 				var score = "";
 				var isFavGame = false;
 				var inProgress = false;
-
 				if(significantEvent.search("Match scheduled to begin") == -1) {
 					inProgress = true;
 					isFavGame = (favTeams.indexOf(team1) != -1) || (favTeams.indexOf(team2) != -1);
@@ -72,6 +72,8 @@ function toString(val) {
 }
 
 function getCommentary(id) {
+	var animationDOM = $('#box-loading');
+	animationDOM.show();
 	$.getJSON(url + match + commentary + id, function(response) {
 		var commentaryHTML = response.commentary;
 
@@ -81,6 +83,7 @@ function getCommentary(id) {
 		commentaryHTMLTemp += "<h3 class = \"text-left\">Commentary:</h3>"
 				+ "<hr>";
 		commentaryHTML = commentaryHTMLTemp + commentaryHTML;
+		animationDOM.hide();
 		var commentaryBoxDOM = $('#box');
 		commentaryBoxDOM.html(commentaryHTML);
 	})

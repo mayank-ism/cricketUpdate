@@ -1,5 +1,12 @@
 #box {
 	padding-left: 20px;
+	overflow-y: scroll;
+	height: 500px;
+}
+
+#score-box {
+	overflow-y: scroll;
+	height: 500px;
 }
 
 .commsImportant {
@@ -7,10 +14,37 @@
 }
 
 .card {
+	padding: 2px;
 	cursor: pointer;
 	background-color: rgba(0, 128, 0, 0.11);;
 }
 
 .card:hover {
 	background-color: rgba(0, 128, 0, 0.22);
+}
+
+.hide {
+	display: none;
+}
+
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -ms-animation: spin .7s infinite linear;
+    -webkit-animation: spinw .7s infinite linear;
+    -moz-animation: spinm .7s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+  
+@-webkit-keyframes spinw {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes spinm {
+    from { -moz-transform: rotate(0deg);}
+    to { -moz-transform: rotate(360deg);}
 }

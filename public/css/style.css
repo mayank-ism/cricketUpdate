@@ -1,0 +1,16 @@
+#box {
+	padding-left: 20px;
+}
+
+.commsImportant {
+	font-weight: bold;
+}
+
+.card {
+	cursor: pointer;
+	background-color: rgba(0, 128, 0, 0.11);;
+}
+
+.card:hover {
+	background-color: rgba(0, 128, 0, 0.22);
+}

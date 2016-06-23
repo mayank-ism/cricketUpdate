@@ -14,13 +14,13 @@ function renderNews() {
 		var newsDOMBox = $('#box');
 		newsDOMBox.html("");
 		animationDOM.hide();
-		newsDOMBox.append("<h3 class = \"text-left\">News:</h3><hr>");
+		newsDOMBox.append('<h3 class = "text-left">News:</h3><hr>');
 		allCricketNewsData.forEach(function(news) {
 			var title = news.title;
 			var description = news.description;
 
-			var newsHTML = "<strong><p class = \"text-left\">" + title + "</p></strong>";
-			newsHTML += "<p class = \"text-left\">" + description + "</p><hr>";
+			var newsHTML = '<strong><p class = "text-left">' + title + '</p></strong>';
+			newsHTML += '<p class = "text-left">' + description + '</p><hr>';
 			newsDOMBox.append(newsHTML);
 		});
 	});

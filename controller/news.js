@@ -7,10 +7,10 @@ router.get('/', function(req, res) {
 	if(req.xhr) {
 		var request_url = config.api_url + "cricketNews";
 		request(request_url, function (error, response, body) {
-		  if (!error && response.statusCode == 200) {
-		    res.send(body);
-		  }
-		});	
+      if (!error && response.statusCode == 200) {
+        res.send(body);
+      }
+    });	
 	} else {
 		res.send("Ain't your territory");
 	}

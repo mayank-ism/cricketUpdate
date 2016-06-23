@@ -1,7 +1,8 @@
-var url = "http://127.0.0.1:8080/";
-var match = "match/";
-var commentary = "commentary/";
+var url = 'http://127.0.0.1:8080/';
+var match = 'match/';
+var commentary = 'commentary/';
 var favTeams = ["India","Australia","England","South Africa"];
+
 $(document).ready(function() {
 	renderScore();
 	interval = 1000 * 60 * 1;
@@ -14,18 +15,20 @@ function renderScore() {
 	var scoreBoxFavTeamDOM = $('#score-fav-live');
 	var animationDOM = $('#score-box-loading');
 	animationDOM.show();
+
 	$.getJSON(url + match, function(response) {
 		var allMatchDataArray = response.data;
 		scoreBoxLiveDOM.html("");
 		scoreBoxLaterDOM.html("");
 		scoreBoxFavTeamDOM.html("");
 		animationDOM.hide();
-		scoreBoxFavTeamDOM.append("<h3 class = \"text-left\">Games:</h3><hr>");
+		scoreBoxFavTeamDOM.append('<h3 class = "text-left">Games:</h3><hr>');
+
 		allMatchDataArray.forEach(function(game) {
 			var unique_id = game['unique_id'];
 			var description = game['description'];
 			var gameHTML = "";
-			gameHTML += "<p class = \"text-left\">" + description + "</p>";
+			gameHTML += '<p class = "text-left">' + description + '</p>';
 
 			$.getJSON(url + match + "/" + unique_id, function(matchDetail) {
 				var team1 = matchDetail['team-1'];
@@ -44,10 +47,10 @@ function renderScore() {
 					gameHTML += "<p>"+ toString(score[1]) + ", " + toString(score[2]) +"</p>";
 				}			
 
-				var htmlString = "<div class=\"card\""   
-					+ "id=\"" + unique_id + "\"" + "onclick=\"getCommentary(" + unique_id + ")\">" 
-					+ gameHTML + "<p>" + significantEvent 
-					+ "</p></div>"+"<hr>";
+				var htmlString = '<div class="card"'  
+				+ 'id="' + unique_id + '"' + 'onclick="getCommentary(' + unique_id + ')">' 
+				+ gameHTML + '<p>' + significantEvent 
+				+ '</p></div>'+'<hr>';
 
 				if(inProgress) {
 					if(isFavGame){
@@ -78,10 +81,10 @@ function getCommentary(id) {
 		var commentaryHTML = response.commentary;
 
 		goBackToNews = "Go to news";
-		commentaryHTMLTemp = "<h4 class=\"text-left\" onclick = \"renderNews()\" style = \"cursor: pointer\">" 
-						+ goBackToNews + "</h4>" 
-		commentaryHTMLTemp += "<h3 class = \"text-left\">Commentary:</h3>"
-				+ "<hr>";
+		commentaryHTMLTemp = '<h4 class="text-left" onclick = "renderNews()" style = "cursor: pointer">'
+		+ goBackToNews + '</h4>'
+		commentaryHTMLTemp += '<h3 class = "text-left">Commentary:</h3>'
+		+ '<hr>';
 		commentaryHTML = commentaryHTMLTemp + commentaryHTML;
 		animationDOM.hide();
 		var commentaryBoxDOM = $('#box');

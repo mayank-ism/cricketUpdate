@@ -5,13 +5,13 @@ $(document).ready(function() {
 
 function renderNews() {
 	var animationDOM = $('#box-loading');
+	var newsDOMBox = $('#box');
 	animationDOM.show();
 	var url = "http://127.0.0.1:8080/";
 	var news = "news/";
 	$.getJSON(url + news, function(response) {
 		allCricketNewsData = response.data;
 
-		var newsDOMBox = $('#box');
 		newsDOMBox.html("");
 		animationDOM.hide();
 		newsDOMBox.append('<h3 class = "text-left">News:</h3><hr>');
@@ -24,4 +24,6 @@ function renderNews() {
 			newsDOMBox.append(newsHTML);
 		});
 	});
+
+	newsDOMBox.height($(window).height() - $('#top-nav').height());
 }

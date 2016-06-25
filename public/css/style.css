@@ -1,12 +1,10 @@
 #box {
 	padding-left: 20px;
 	overflow-y: scroll;
-  height: 500px;
 }
 
 #score-box {
 	overflow-y: scroll;
-	height: 500px;
 }
 
 .card {

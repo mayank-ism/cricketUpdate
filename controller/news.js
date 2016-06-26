@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
       }
     });	
 	} else {
-		res.send("Ain't your territory");
+		res.redirect('/');
 	}
 });
 

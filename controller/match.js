@@ -12,7 +12,7 @@ router.get('/',function(req, res) {
       }
     });
 	} else {
-		res.send("Ain't your territory!");
+		res.redirect('/');
 	}
 });
 
@@ -25,7 +25,7 @@ router.get('/:id', function(req, res) {
       }
     });	
 	} else {
-		res.send("Ain't your territory!");
+		res.redirect('/');
 	}
 });
 
@@ -38,7 +38,7 @@ router.get('/commentary/:id', function(req, res) {
       }
     });	
 	} else {
-		res.send("Ain't your territory!");
+		res.redirect('/');
 	}
 });
 

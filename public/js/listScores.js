@@ -30,7 +30,7 @@ function renderScore() {
 			var gameHTML = "";
 			gameHTML += '<p class = "text-left">' + description + '</p>';
 
-			$.getJSON(url + match + "/" + unique_id, function(matchDetail) {
+			$.getJSON(url + match + unique_id, function(matchDetail) {
 				var team1 = matchDetail['team-1'];
 				var team2 = matchDetail['team-2'];
 				var significantEvent = matchDetail['innings-requirement'];

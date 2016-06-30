@@ -64,6 +64,7 @@ function renderScore() {
 			});
 		});
 	});
+	$('#score-box').height($(window).height() - $("#top-nav").height());
 }
 
 function toString(val) {
